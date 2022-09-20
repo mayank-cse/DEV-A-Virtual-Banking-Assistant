@@ -161,8 +161,7 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 <p align="right">(<a href="readme-top">back to top</a>)</p>
 
 ## Presentation
-<!-- [Presentation](https://docs.google.com/presentation/d/15G2gJ_l0Yf6BbbnAvDusuyo-6oca0zkx/edit?usp=sharing&ouid=110656000818841743215&rtpof=true&sd=true) -->
-[GoToMarket Presentation.pptx](https://github.com/mayank-cse/EcommerceMerchandizerBot/files/9400239/GoToMarket.Presentation.pptx)
+[DEV BankingBot Presentation.pptx](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/Dev%20PPT%202.0.pptx)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
