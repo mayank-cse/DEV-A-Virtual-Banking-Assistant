@@ -181,7 +181,7 @@ https://user-images.githubusercontent.com/72187020/188004026-d95557a7-f866-4400-
 
 Mayank Gupta - [@MayankGuptaCse1](https://twitter.com/MayankGuptacse1) - mayank.guptacse1@gmail.com
 
-Project Link: [https://github.com/mayank-cse/EcommerceMerchandizerBot](https://github.com/mayank-cse/EcommerceMerchandizerBot)
+Project Link: [https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
