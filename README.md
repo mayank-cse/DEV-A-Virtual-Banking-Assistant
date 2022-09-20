@@ -6,12 +6,12 @@
  <br>
  The virtual financial assistant Dev is designed to help customers more easily manage their money. Within the interactive interface, Dev converse to answer FAQs, provide reward and account balances, spending summaries, refund confirmations and credit scores. He can also identify duplicate charges and send bill reminders.
     <br />
-    <a href="https://github.com/mayank-cse/BOB-Bank-Bot"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://www.youtube.com/watch?v=7rRr-QrRWckhttps">View Demo</a>
     ·
-    <a href="https://github.com/mayank-cse/BOB-Bank-Bot/issues">Report Bug</a>
+    <a href="https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/issues">Report Bug</a>
     ·
     <a href="https://docs.google.com/presentation/d/15G2gJ_l0Yf6BbbnAvDusuyo-6oca0zkx/edit?usp=sharing&ouid=110656000818841743215&rtpof=true&sd=true">View Presentation</a>
   </p>
@@ -51,7 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![App Screenshot](https://github.com/mayank-cse/EcommerceMerchandizerBot/blob/main/Assets/images/Bot%20Features%20-%20Merchandisers%20Daily%20Task.png)
+![App Screenshot](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/DEV%20Activity%20Chart.png)
 
 The virtual financial assistant Dev is designed to help customers more easily manage their money. Within the interactive interface, Dev provides reward and account balances, spending summaries, refund confirmations and credit scores. He can also identify duplicate charges and send bill reminders. 
 
@@ -167,7 +167,7 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 
 
 ## Flow Chart
-![Flow Chart](https://github.com/mayank-cse/EcommerceMerchandizerBot/blob/main/Assets/images/Flow%20Chart.png)
+![Flow Chart](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/Dev%20Flow%20Chart.png)
 
 
 
