@@ -1,8 +1,8 @@
 <!-- #Dev - Bank Bot -->
 <a name="readme-top"></a>
-<h1 align="center">Dev - Bank Bot</h1>
+<h1 align="center">Dev - A Virtual Banking Assistant</h1>
   <p align="center">
-    Today’s customers are extremely demanding, expecting fast, inspiring and relevant banking experiences in every moment of the banking journey. Merchandizing is the heart for bankers succeeding in delivering relevant customer experience, which is a continuous perpetual challenge, highly correlated to optimizing conversion, sales and increased revenue.
+    Today’s customers are extremely demanding, expecting fast, inspiring and relevant banking experiences in every moment of the banking journey. Virtual Assistance is the heart for bankers succeeding in delivering relevant customer experience, which is a continuous perpetual challenge, highly correlated to optimizing conversion, sales and increased revenue.
  <br>
  The virtual financial assistant Dev is designed to help customers more easily manage their money. Within the interactive interface, Dev converse to answer FAQs, provide reward and account balances, spending summaries, refund confirmations and credit scores. He can also identify duplicate charges and send bill reminders.
     <br />
@@ -172,9 +172,10 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 
 ## Implementation Video
 
-https://www.youtube.com/watch?v=7rRr-QrRWck
+https://youtu.be/g6uBCjApQ0w
 
-https://user-images.githubusercontent.com/72187020/188004026-d95557a7-f866-4400-856f-368c4b781093.mp4
+https://user-images.githubusercontent.com/72187020/191553184-fc2fbb80-280e-4992-8842-8cb9efc4ce3f.mp4
+
 
 <!-- CONTACT -->
 ## Contact
