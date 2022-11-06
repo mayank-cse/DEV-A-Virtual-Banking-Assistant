@@ -1,0 +1,30 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://seeklogo.com/images/B/bank-of-baroda-logo-0E2B393C29-seeklogo.com.png",
+      "size": "stretch"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "medium",
+      "size": "default",
+      "weight": "bolder",
+      "text": "Welcome to Bank of Baroda!",
+      "wrap": true,
+      "maxLines": 0
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "isSubtle": true,
+      "text": "This is Mayank, your virtual assistant. If you need help simply type your question or choose from the following options provided below.",
+      "wrap": true,
+      "maxLines": 0
+    }
+  ]
+
+}

@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Cards\welcomeCard.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Cards\welcomeCard.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AdaptiveCards" Version="2.7.1" />
+    <PackageReference Include="Azure.AI.FormRecognizer" Version="4.0.0" />
+    <PackageReference Include="Azure.AI.Language.QuestionAnswering" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Language.TextAnalytics" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.ComputerVision" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.18.0" />
+    <PackageReference Include="Microsoft.Bot.Builder" Version="4.13.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.Luis" Version="4.13.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.QnA" Version="4.13.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs" Version="4.13.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.13.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.LanguageGeneration" Version="4.13.1" />
+    <PackageReference Include="Microsoft.Bot.Builder.Location" Version="2.1.0" />
+    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.46" />
+    <PackageReference Include="Microsoft.Recognizers.Text.DataTypes.TimexExpression" Version="1.4.0" />
+    <PackageReference Include="Microsoft.TeamFoundationServer.Client" Version="16.170.0" />
+    <PackageReference Include="Microsoft.Xrm.Sdk.2011" Version="5.0.18" />
+    <PackageReference Include="Microsoft.Xrm.Sdk.2015" Version="7.1.0.1085" />
+    <PackageReference Include="Microsoft.XRM.SDK.2015.OnPremise" Version="7.0.2.8" />
+    <PackageReference Include="Ngrok.AspNetCore" Version="1.0.6" />
+    <PackageReference Include="Pfe.Microsoft.Xrm.CoreV9" Version="9.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CognitiveModels\" />
+  </ItemGroup>
+
+</Project>

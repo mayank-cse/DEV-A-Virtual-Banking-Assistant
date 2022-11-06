@@ -1,0 +1,155 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj",
+        "projectName": "DevVirtualBankingAssistant",
+        "projectPath": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj",
+        "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AdaptiveCards": {
+              "target": "Package",
+              "version": "[2.7.1, )"
+            },
+            "Azure.AI.FormRecognizer": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Azure.AI.Language.QuestionAnswering": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.Azure.CognitiveServices.Language.TextAnalytics": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.18.0, )"
+            },
+            "Microsoft.Bot.Builder": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "Microsoft.Bot.Builder.AI.Luis": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "Microsoft.Bot.Builder.AI.QnA": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "Microsoft.Bot.Builder.Dialogs": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "Microsoft.Bot.Builder.Integration.AspNet.Core": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "Microsoft.Bot.Builder.LanguageGeneration": {
+              "target": "Package",
+              "version": "[4.13.1, )"
+            },
+            "Microsoft.Bot.Builder.Location": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.CrmSdk.CoreAssemblies": {
+              "target": "Package",
+              "version": "[9.0.2.46, )"
+            },
+            "Microsoft.Recognizers.Text.DataTypes.TimexExpression": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.TeamFoundationServer.Client": {
+              "target": "Package",
+              "version": "[16.170.0, )"
+            },
+            "Microsoft.XRM.SDK.2015.OnPremise": {
+              "target": "Package",
+              "version": "[7.0.2.8, )"
+            },
+            "Microsoft.Xrm.Sdk.2011": {
+              "target": "Package",
+              "version": "[5.0.18, )"
+            },
+            "Microsoft.Xrm.Sdk.2015": {
+              "target": "Package",
+              "version": "[7.1.0.1085, )"
+            },
+            "Ngrok.AspNetCore": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "Pfe.Microsoft.Xrm.CoreV9": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
