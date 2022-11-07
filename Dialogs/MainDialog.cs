@@ -41,8 +41,7 @@ namespace DevVirtualBankingAssistant.Dialogs
         StateService _stateService;
         CosmosDBClient _cosmosDBClient;
         CosmoDBClientToDo _cosmoDBClientToDo;
-        //private readonly ToDoLUISRecognizer _luisRecognizer;
-
+        
         // Dependency injection uses this constructor to instantiate MainDialog
         public MainDialog( ILogger<MainDialog> logger, IConfiguration configuration, UserRepository userRepository, StateService stateService, CosmosDBClient cosmosDBClient, CosmoDBClientToDo cosmoDBClientToDo)
             : base(nameof(MainDialog))
@@ -50,8 +49,7 @@ namespace DevVirtualBankingAssistant.Dialogs
             Configuration = configuration;
             Logger = logger;
             _userRepository = userRepository;
-           // _luisRecognizer = luisRecognizer;
-            _stateService = stateService;
+           _stateService = stateService;
             _cosmosDBClient = cosmosDBClient;
             _cosmoDBClientToDo = cosmoDBClientToDo;
             AddDialog(new TextPrompt(nameof(TextPrompt)));
@@ -66,6 +64,7 @@ namespace DevVirtualBankingAssistant.Dialogs
             AddDialog(new ScheduleTask(_stateService,_cosmoDBClientToDo, Configuration));
             AddDialog(new UpdateProductDialog(_cosmosDBClient, _stateService));
             AddDialog(new Transaction(Configuration, cosmosDBClient, _stateService));
+            AddDialog(new registerComplaint(Configuration, cosmosDBClient, _stateService));
             AddDialog(new ChequeTransaction(Configuration, cosmosDBClient, _stateService));
             AddDialog(new InvoiceDetection(Configuration, cosmosDBClient, _stateService));
             AddDialog(new RemoveProductsDialog(_cosmosDBClient, _stateService));
@@ -157,7 +156,7 @@ namespace DevVirtualBankingAssistant.Dialogs
 
             
             await stepContext.Context.SendActivityAsync(MessageFactory.Text("How can I help you today?"), cancellationToken);
-            List<string> operationList = new List<string> { "Deposit Accounts", "Loan Products", "Digital Products", "Interest Rate", "Service Charges", "Register Complaint", "Block Card & Cheque", "Locate ATM/Branch", "Doorstep Banking", "Schedule Meeting", "Transaction", "Detect Language","Cheque Transaction", "Khata Book", "Invoice Analyser", "Exit" };
+            List<string> operationList = new List<string> { "Deposit Accounts", "Transaction", "Detect Language", "Cheque Transaction", "Khata Book", "Invoice Analyser", "Service Product Record", "Register Complaint", "Locate ATM/Branch", "Schedule Meeting", "Hi! How are you", "Exit" };
             // Create card
             var card = new AdaptiveCard(new AdaptiveSchemaVersion(1, 0))
             {
@@ -173,7 +172,7 @@ namespace DevVirtualBankingAssistant.Dialogs
                 new Activity[] {
                 new Activity { Type = ActivityTypes.Typing },
                 new Activity { Type = "delay", Value= 5000 },
-                MessageFactory.Text("Finished typing", "Finished typing"),
+                MessageFactory.Text("...", "..."),
                     },
                     cancellationToken);
             // Prompt
@@ -223,6 +222,10 @@ namespace DevVirtualBankingAssistant.Dialogs
             {
                 return await stepContext.BeginDialogAsync(nameof(scheduleMeeting), new teams(), cancellationToken);
             }
+            else if("Service Product Record".Equals(operation))
+            {
+                return await stepContext.BeginDialogAsync(nameof(DisplayProduct), new Product(), cancellationToken);
+            }
             else if("Cheque Transaction".Equals(operation))
             {
                 return await stepContext.BeginDialogAsync(nameof(ChequeTransaction), new transactionDetails(), cancellationToken);
@@ -235,6 +238,11 @@ namespace DevVirtualBankingAssistant.Dialogs
             {
                 return await stepContext.BeginDialogAsync(nameof(InvoiceDetection), new InvoiceData(), cancellationToken);
             }
+            else if ("Register Complaint".Equals(operation))
+            {
+                return await stepContext.BeginDialogAsync(nameof(registerComplaint), new MarketDetails(), cancellationToken);
+            }
+
             else if ("Exit".Equals(operation))
             {
                 return await stepContext.BeginDialogAsync(nameof(Remarks), new User(), cancellationToken);
@@ -256,10 +264,10 @@ namespace DevVirtualBankingAssistant.Dialogs
         }
         private async Task<DialogTurnResult> GetAnswerFromQnAMaker(string question, WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            Uri endpoint = new Uri(Configuration["ENDPOINT"]);
-            AzureKeyCredential credential = new AzureKeyCredential(Configuration["KEY"]);
-            string projectName = Configuration["PROJECTNAME"];
-            string deploymentName = Configuration["DEPLOYMENTNAME"];
+            Uri endpoint = new Uri(Configuration["FAQENDPOINT"]);
+            AzureKeyCredential credential = new AzureKeyCredential(Configuration["FAQKEY"]);
+            string projectName = Configuration["FAQPROJECTNAME"];
+            string deploymentName = Configuration["FAQDEPLOYMENTNAME"];
             //Get Answer from Azure Language Studio
 
 
@@ -272,9 +280,9 @@ namespace DevVirtualBankingAssistant.Dialogs
 
             {
                  await stepContext.Context.SendActivityAsync(MessageFactory.Text(answer.Answer), cancellationToken);
-                 }
+            }
 
-           return await stepContext.EndDialogAsync(null, cancellationToken);
+           return await stepContext.BeginDialogAsync(InitialDialogId, cancellationToken);
 
         }
        

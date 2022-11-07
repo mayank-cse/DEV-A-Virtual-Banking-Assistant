@@ -65,7 +65,20 @@ namespace DevVirtualBankingAssistant.Cards
                 return heroCard;
             
         }
+        public static HeroCard GetHeroCardComplaint(string Name, string Branch, string Department, string Remark, string image)
+        {
+            var heroCard = new HeroCard
+            {
+                Title = $"Complaint Filed aginst - {Name}",
+                Subtitle = $"Branch : {Branch} " +
+                $"Department: {Department}" +
+                $" \n Remarks: {Remark}",
+                Images = new List<CardImage> { new CardImage(image) },
+            };
 
+            return heroCard;
+
+        }
         public static HeroCard GetHeroCardForView()
         {
             var heroCard = new HeroCard

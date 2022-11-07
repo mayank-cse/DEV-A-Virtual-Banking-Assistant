@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj": {}
+    "C:\\Users\\mayan\\OneDrive\\Desktop\\DEV-A-Virtual-Banking-Assistant\\DevVirtualBankingAssistant.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj": {
+    "C:\\Users\\mayan\\OneDrive\\Desktop\\DEV-A-Virtual-Banking-Assistant\\DevVirtualBankingAssistant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj",
+        "projectUniqueName": "C:\\Users\\mayan\\OneDrive\\Desktop\\DEV-A-Virtual-Banking-Assistant\\DevVirtualBankingAssistant.csproj",
         "projectName": "DevVirtualBankingAssistant",
-        "projectPath": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj",
+        "projectPath": "C:\\Users\\mayan\\OneDrive\\Desktop\\DEV-A-Virtual-Banking-Assistant\\DevVirtualBankingAssistant.csproj",
         "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\obj\\",
+        "outputPath": "C:\\Users\\mayan\\OneDrive\\Desktop\\DEV-A-Virtual-Banking-Assistant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",

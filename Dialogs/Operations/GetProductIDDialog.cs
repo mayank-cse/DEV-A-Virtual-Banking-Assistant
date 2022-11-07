@@ -38,7 +38,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions()
             {
                 Prompt = MessageFactory.Text("Select the category to get the latest product ID."),
-                Choices = ChoiceFactory.ToChoices(new List<string> { "Television", "Laptop", "Air Conditioner", "Monitor", "Speaker", "Earphones" }),
+                Choices = ChoiceFactory.ToChoices(new List<string> { "Loan", "FD", "Deposit", "Locker", "Active Accounts", "Credit Card" }),
             }, cancellationToken);
         }
 
@@ -48,7 +48,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             List<ProductDBDetails> productDBDetails = await _cosmosDBClient.QueryLatestCategoryItemsAsync(productCategory);
             if (productDBDetails.Count > 0)
             {
-                await stepContext.Context.SendActivityAsync(MessageFactory.Text($"The latest product ID is {productDBDetails[0].Id} for product name '{productDBDetails[0].ProductName}'"), cancellationToken);
+                await stepContext.Context.SendActivityAsync(MessageFactory.Text($"The latest product ID is {productDBDetails[0].Id} for service product name '{productDBDetails[0].ProductName}'"), cancellationToken);
             }
             else
             {

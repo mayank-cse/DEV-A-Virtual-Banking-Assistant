@@ -58,7 +58,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
                 return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions()
                 {
                     Prompt = MessageFactory.Text("Please select the category to view the products?"),
-                    Choices = ChoiceFactory.ToChoices(new List<string> { "Television", "Laptop", "Air Conditioner", "Monitor", "Speaker", "Earphones" }),
+                    Choices = ChoiceFactory.ToChoices(new List<string> { "Loan", "FD", "Deposit", "Locker", "Active Accounts", "Credit Card" }),
                 }, cancellationToken);
             }
             return await stepContext.NextAsync(null, cancellationToken);

@@ -71,7 +71,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
                 case "Price":
                     return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
                     {
-                        Prompt = MessageFactory.Text($"What price would you like to keep?")
+                        Prompt = MessageFactory.Text($"What amount would you like to keep?")
                     }, cancellationToken);
 
                 case "Image":
@@ -84,7 +84,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
                     return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions()
                     {
                         Prompt = MessageFactory.Text("What category you want the product to get changed?"),
-                        Choices = ChoiceFactory.ToChoices(new List<string> { "Television", "Laptop", "Air Conditioner", "Monitor", "Speaker", "Earphones" }),
+                        Choices = ChoiceFactory.ToChoices(new List<string> { "Loan", "FD", "Deposit", "Locker", "Active Accounts", "Credit Card" }),
                     }, cancellationToken);
 
                 default:

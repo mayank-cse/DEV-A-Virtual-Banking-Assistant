@@ -58,7 +58,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
             {
-                Prompt = MessageFactory.Text($"What price would you like to keep for {(string)stepContext.Values["ProductName"]}?")
+                Prompt = MessageFactory.Text($"What amount is associated with {(string)stepContext.Values["ProductName"]}?")
             }, cancellationToken);
         }
 
@@ -79,7 +79,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions()
             {
                 Prompt = MessageFactory.Text("What category your product belongs to?"),
-                Choices = ChoiceFactory.ToChoices(new List<string> { "Television", "Laptop", "Air Conditioner", "Monitor", "Speaker", "Earphones" }),
+                Choices = ChoiceFactory.ToChoices(new List<string> { "Loan", "FD", "Deposit", "Locker", "Active Accounts", "Credit Card" }),
             }, cancellationToken);
         }
 
@@ -89,7 +89,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("Would you like to Add more products?")
+                Prompt = MessageFactory.Text("Would you like to Add more service products?")
             }, cancellationToken);
         }
 

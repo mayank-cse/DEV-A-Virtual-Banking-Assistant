@@ -15,14 +15,14 @@ using DevVirtualBankingAssistant.Services;
 
 namespace DevVirtualBankingAssistant.Dialogs.Operations
 {
-    public class AddProductsDialog : CancelAndHelpDialog
+    public class registerComplaint : CancelAndHelpDialog
     {
         protected readonly IConfiguration Configuration;
         CosmosDBClient _cosmosDBClient;
-        private readonly string CheckProductDialogID = "CheckProductDlg";
+        //private readonly string CheckProductDialogID = "CheckProductDlg";
         StateService _stateService;
 
-        public AddProductsDialog(IConfiguration configuration, CosmosDBClient cosmosDBClient, StateService stateService) : base(nameof(AddProductsDialog))
+        public registerComplaint(IConfiguration configuration, CosmosDBClient cosmosDBClient, StateService stateService) : base(nameof(registerComplaint))
         {
             Configuration = configuration;
             _cosmosDBClient = cosmosDBClient;
@@ -34,11 +34,11 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
                 GetLastProductIDStepAsync,
                 ProductIDStepAsync,
                 ProductNameStepAsync,
-                ProductPriceStepAsync,
+                //ProductPriceStepAsync,
                 ProductImageURLStepAsync,
                 ProductCategoryStepAsync,
                 MoreProductsStepAsync,
-                MoreProductActStepAsync,
+                //MoreProductActStepAsync,
                 SummaryStepAsync,
             };
 
@@ -49,32 +49,30 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt)));
             AddDialog(new AddMoreProductsDialog());
             AddDialog(new GetProductIDDialog(_cosmosDBClient));
-            AddDialog(new TextPrompt(CheckProductDialogID, ProductExistsValidation));
+            //AddDialog(new TextPrompt(CheckProductDialogID, ProductExistsValidation));
 
             InitialDialogId = nameof(WaterfallDialog);
         }
 
-        
+
         private async Task<DialogTurnResult> GetProductIDStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions()
+            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions()
             {
-                Prompt = MessageFactory.Text("How do you like to get the Service ID?"),
-                Choices = ChoiceFactory.ToChoices(new List<string> { "Enter Service ID", "View Last Service ID"}),
+                Prompt = MessageFactory.Text("Please provide the name of the person you want to register a complaint against? Ex. <Store Name/ Distributor Name>"),
+                //Choices = ChoiceFactory.ToChoices(new List<string> { "Enter Product ID", "View Last Product ID" }),
             }, cancellationToken);
         }
 
         private async Task<DialogTurnResult> GetLastProductIDStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            stepContext.Values["ProductIDOperation"] = ((FoundChoice)stepContext.Result).Value;
-            string getProductID = (string)stepContext.Values["ProductIDOperation"];
-
-            if ("View Last Service ID".Equals(getProductID))
+            stepContext.Values["StoreName"] = (string)stepContext.Result;
+            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions()
             {
-                return await stepContext.BeginDialogAsync(nameof(GetProductIDDialog), null, cancellationToken);
-            }
-            
-            return await stepContext.NextAsync(null, cancellationToken);
+                Prompt = MessageFactory.Text("Which are branch was involved Example - Mayur Vihar "),
+                //Choices = ChoiceFactory.ToChoices(new List<string> { "Enter Product ID", "View Last Product ID" }),
+            }, cancellationToken);
+
         }
 
         private async Task<DialogTurnResult> ProductIDStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
@@ -83,9 +81,12 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             userProfile.ValueFinder = "id";
             await _stateService.UserProfileAccessor.SetAsync(stepContext.Context, userProfile);
 
-            return await stepContext.PromptAsync(CheckProductDialogID, new PromptOptions
+
+            stepContext.Values["location"] = (string)stepContext.Result;
+
+            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("Please give a Service ID.")
+                Prompt = MessageFactory.Text("If you have any related picture, please do share(currently share numbers) Example - 'https://raw.githubusercontent.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/main/Resources/MisbehaviourBankOfficials.png'")
             }, cancellationToken);
         }
 
@@ -95,31 +96,22 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             userProfile.ValueFinder = "ProductName";
             await _stateService.UserProfileAccessor.SetAsync(stepContext.Context, userProfile);
 
-            stepContext.Values["ProductID"] = (string)stepContext.Result;
-            
-            return await stepContext.PromptAsync(CheckProductDialogID, new PromptOptions
+            stepContext.Values["PictureInt"] = (string)stepContext.Result;
+
+            return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("Please give a name of the product that you familarize with, Example - 'Housing Loan', 'Car Loan', 'Platinum Card'.")
+                Prompt = MessageFactory.Text("Please describe what happened. This will help us to do inquiry. ")
             }, cancellationToken);
         }
 
-        private async Task<DialogTurnResult> ProductPriceStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            stepContext.Values["ProductName"] = (string)stepContext.Result;
-            
-            return await stepContext.PromptAsync(nameof(NumberPrompt<int>), new PromptOptions
-            {
-                Prompt = MessageFactory.Text($"What amount is associated with {(string)stepContext.Values["ProductName"]}?")
-            }, cancellationToken);
-        }
 
         private async Task<DialogTurnResult> ProductImageURLStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            stepContext.Values["ProductPrice"] = (int)stepContext.Result;
-            
+            stepContext.Values["CompanyR"] = (string)stepContext.Result;
+
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("Please give a image URL of the product. Example - 'https://raw.githubusercontent.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/main/Resources/Housing%20Loan.jpg'.")
+                Prompt = MessageFactory.Text("If you have please share his phone number. You can mention 'SKIP' ")
             }, cancellationToken);
         }
 
@@ -129,8 +121,8 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions()
             {
-                Prompt = MessageFactory.Text("What category your servce belongs to?"),
-                Choices = ChoiceFactory.ToChoices(new List<string> { "Loan", "FD", "Deposit", "Locker", "Active Accounts", "Credit Card" }),
+                Prompt = MessageFactory.Text("What category of product your report is targetting? You can mention 'General' for all category"),
+                Choices = ChoiceFactory.ToChoices(new List<string> { "Loan", "Cards", "Deposits" }),
             }, cancellationToken);
         }
 
@@ -138,60 +130,56 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
         private async Task<DialogTurnResult> MoreProductsStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             stepContext.Values["ProductCategory"] = ((FoundChoice)stepContext.Result).Value;
+            var marketDetails = (MarketDetails)stepContext.Options;
+            await stepContext.Context.SendActivityAsync(MessageFactory.Text("We are sorry for the inconvenience caused to you. I have forwarded your complaint to the respective department head. They will contact you via mail within next 24 hours. Thank you."), cancellationToken);
 
-            return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions
-            {
-                Prompt = MessageFactory.Text("Would you like to Add more product service?")
-            }, cancellationToken);
+            return await stepContext.NextAsync(marketDetails, cancellationToken);
         }
 
-        private async Task<DialogTurnResult> MoreProductActStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            var productDetails = (ProductDetails)stepContext.Options;
 
-            if ((bool)stepContext.Result)
-            {
-                return await stepContext.BeginDialogAsync(nameof(AddMoreProductsDialog), productDetails, cancellationToken);
-            }
-            else
-            {
-                return await stepContext.NextAsync(productDetails, cancellationToken);
-            }
-        }
 
         private async Task<DialogTurnResult> SummaryStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var productDetails = (ProductDetails)stepContext.Result;
-            Product product = new Product()
+            UserProfile userProfile = await _stateService.UserProfileAccessor.GetAsync(stepContext.Context, () => new UserProfile());
+            stepContext.Values["MerchandiserEmail"] = userProfile.Email;
+            var marketDetails = (MarketDetails)stepContext.Result;
+            ProductM product = new ProductM()
             {
-                ID = (string)stepContext.Values["ProductID"],
-                Name = (string)stepContext.Values["ProductName"],
-                Price = (int)stepContext.Values["ProductPrice"],
+                Email = (string)stepContext.Values["MerchandiserEmail"],
+                //ID = (string)stepContext.Values["ProductID"],
+                SName = (string)stepContext.Values["StoreName"],
+                location = (string)stepContext.Values["location"],
+                Photo = (string)stepContext.Values["PictureInt"],
+                Company = (string)stepContext.Values["CompanyR"],
+                //Photo = (int)stepContext.Values["ProductPrice"],
                 ImageURL = (string)stepContext.Values["ProductImageURL"],
                 Category = (string)stepContext.Values["ProductCategory"]
             };
 
-            productDetails.ProductList.Add(product);
+            marketDetails.ProductList.Add(product);
 
             var attachments = new List<Attachment>();
             var reply = MessageFactory.Attachment(attachments);
             reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
 
-            for (int i = 0; i < productDetails.ProductList.Count; i++)
+            await stepContext.Context.SendActivityAsync(MessageFactory.Text("Add Products operation completed. Thank you."), cancellationToken);
+            await _cosmosDBClient.CreateDBConnection(Configuration["CosmosEndPointURI"], Configuration["CosmosPrimaryKey"], Configuration["CosmosDatabaseIdMarketReport"], Configuration["CosmosContainerIdMarketReport"], Configuration["CosmosPartitionKeyMarketReport"]);
+
+            for (int i = 0; i < marketDetails.ProductList.Count; i++)
             {
                 bool flag = true;
 
-                if (await _cosmosDBClient.AddItemsToContainerAsync(productDetails.ProductList[i].ID, productDetails.ProductList[i].Name, productDetails.ProductList[i].Price, productDetails.ProductList[i].ImageURL, productDetails.ProductList[i].Category) == -1)
+                if (await _cosmosDBClient.AddItemsToContainerAsync(marketDetails.ProductList[i].Email, marketDetails.ProductList[i].SName, marketDetails.ProductList[i].location, marketDetails.ProductList[i].Photo, marketDetails.ProductList[i].Company, marketDetails.ProductList[i].ImageURL, marketDetails.ProductList[i].Category) == -1)
                 {
-                    await stepContext.Context.SendActivityAsync(MessageFactory.Text("The Product '" + productDetails.ProductList[i].Name + "' already exists"), cancellationToken);
+                    await stepContext.Context.SendActivityAsync(MessageFactory.Text("The Product '" + marketDetails.ProductList[i].Email + "' already exists"), cancellationToken);
                     flag = false;
                 }
 
                 if (flag)
                 {
-                    reply.Attachments.Add(Cards.Cards.GetHeroCard(productDetails.ProductList[i].ID, productDetails.ProductList[i].Name, productDetails.ProductList[i].Price, productDetails.ProductList[i].ImageURL).ToAttachment());
+                    reply.Attachments.Add(Cards.Cards.GetHeroCardComplaint(marketDetails.ProductList[i].SName, marketDetails.ProductList[i].location,marketDetails.ProductList[i].Category, marketDetails.ProductList[i].Company,marketDetails.ProductList[i].ImageURL).ToAttachment());
                 }
-                
+
             }
 
             // Send the card(s) to the user as an attachment to the activity
@@ -199,7 +187,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             await stepContext.Context.SendActivityAsync(MessageFactory.Text("Add Products operation completed. Thank you."), cancellationToken);
 
-            return await stepContext.EndDialogAsync(productDetails, cancellationToken);
+            return await stepContext.EndDialogAsync(marketDetails, cancellationToken);
         }
 
         private async Task<bool> ProductExistsValidation(PromptValidatorContext<string> promptcontext, CancellationToken cancellationtoken)
@@ -213,7 +201,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
                 await promptcontext.Context.SendActivityAsync($"The {userProfile.ValueFinder} {product} already exists. Please give different {userProfile.ValueFinder}", cancellationToken: cancellationtoken);
                 return false;
             }
-            
+
             return true;
         }
     }

@@ -57,9 +57,6 @@ namespace DevVirtualBankingAssistant.Dialogs
             AddDialog(new UpdateProductDialog(_cosmosDBClient, _stateService));
             AddDialog(new RemoveProductsDialog(_cosmosDBClient, _stateService));
             AddDialog(new ViewAllProductsDialog(_cosmosDBClient, _stateService));
-            //AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
-
-            //AddDialog(new WaterfallDialog(nameof(WaterfallDialog), waterfallSteps));
 
             // The initial child Dialog to run.
             InitialDialogId = nameof(WaterfallDialog);
@@ -83,15 +80,7 @@ namespace DevVirtualBankingAssistant.Dialogs
                     Data = choice,  // This will be a string
                 }).ToList<AdaptiveAction>(),
             };
-            /*/Typing... Message
-            await stepContext.Context.SendActivitiesAsync(
-                new Activity[] {
-                new Activity { Type = ActivityTypes.Typing },
-                new Activity { Type = "delay", Value= 5000 },
-                MessageFactory.Text("Finished typing", "Finished typing"),
-                    },
-                    cancellationToken);
-            */// Prompt
+            
             return await stepContext.PromptAsync(nameof(ChoicePrompt), new PromptOptions
             {
                 Prompt = (Activity)MessageFactory.Attachment(new Attachment

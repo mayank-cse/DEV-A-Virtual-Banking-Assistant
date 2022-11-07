@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SB6mvjujth9tazILDNBtq3be/KWzYJ9JxFdN50yJTJ1Wflk6m0lxk1Cc5mls8QfMfBOKQ7cRvfsCzOitNxmEqw==",
+  "dgSpecHash": "/d0xPM5vL/K6/EiBKM4nJ1an0n1IK2PZi36HddNv7UwCVo7VU0KTD3hwz6jZE/zuwN6iPi8OPqMSZjrJwqVx6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mayan\\OneDrive\\Desktop\\BOTS\\EcommerceAdminBot-master ChequeInput\\EcommerceAdminBot-master Final\\EcommerceAdminBot-master\\DevVirtualBankingAssistant.csproj",
+  "projectFilePath": "C:\\Users\\mayan\\OneDrive\\Desktop\\DEV-A-Virtual-Banking-Assistant\\DevVirtualBankingAssistant.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mayan\\.nuget\\packages\\adaptivecards\\2.7.1\\adaptivecards.2.7.1.nupkg.sha512",
     "C:\\Users\\mayan\\.nuget\\packages\\adaptiveexpressions\\4.13.1\\adaptiveexpressions.4.13.1.nupkg.sha512",

@@ -59,7 +59,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
         {
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions()
             {
-                Prompt = MessageFactory.Text("Where are you? Ex. <Store Name/ Distributor Name>"),
+                Prompt = MessageFactory.Text("Please provide the name of the person you want to register a complaint against? Ex. <Store Name/ Distributor Name>"),
                 //Choices = ChoiceFactory.ToChoices(new List<string> { "Enter Product ID", "View Last Product ID" }),
             }, cancellationToken);
         }
@@ -69,7 +69,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
             stepContext.Values["StoreName"] = (string)stepContext.Result;
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions()
             {
-                Prompt = MessageFactory.Text("What is your location? Ex. <Address - LG Shoppe Mayur Vihar-Delhi-110091>"),
+                Prompt = MessageFactory.Text("If known please mention the Branch he/she belongs to. Ex. <Loan Deppartment - Credit Card Department"),
                 //Choices = ChoiceFactory.ToChoices(new List<string> { "Enter Product ID", "View Last Product ID" }),
             }, cancellationToken);
             
@@ -86,7 +86,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("If you have any picture do share(currently share numbers)")
+                Prompt = MessageFactory.Text("If you have any related picture, please do share(currently share numbers) Example - 'https://raw.githubusercontent.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/main/Resources/MisbehaviourBankOfficials.png'")
             }, cancellationToken) ;
         }
 
@@ -100,7 +100,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("Which company is involved Ex. <Samsung|Motorola|Micromax>. If no company is involved mention 'SKIP' ")
+                Prompt = MessageFactory.Text("Which Branch is involved Ex. <Loan|Card|Bankers>. If no company is involved mention 'SKIP' ")
             }, cancellationToken);
         }
 
@@ -111,7 +111,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
 
             return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions
             {
-                Prompt = MessageFactory.Text("If you have any links please share. Ex. <Https://lg.com>. You can mention 'SKIP' ")
+                Prompt = MessageFactory.Text("If you have please share his phone number. You can mention 'SKIP' ")
             }, cancellationToken);
         }
 
@@ -131,7 +131,7 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
         {
             stepContext.Values["ProductCategory"] = ((FoundChoice)stepContext.Result).Value;
             var marketDetails = (MarketDetails)stepContext.Options;
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text("Add Products operation completed. Thank you."), cancellationToken);
+            await stepContext.Context.SendActivityAsync(MessageFactory.Text("We are sorry for the inconvenience caused to you. I have forwarded your complaint to the respective department head. They will contact you via mail within next 24 hours. Thank you."), cancellationToken);
 
             return await stepContext.NextAsync(marketDetails, cancellationToken);
         }

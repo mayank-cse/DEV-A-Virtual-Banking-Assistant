@@ -38,6 +38,8 @@ namespace DevVirtualBankingAssistant.Dialogs.Operations
         private readonly StateService _stateService;
         private readonly UserRepository _userRespository;
         protected readonly IConfiguration Configuration;
+        
+            
         private const string CogServiceSecret = "db071ae08bab4e57b35a0ef7d2a8c216";
         private const string Endpoint = "https://dev262.cognitiveservices.azure.com/";
         //private readonly string CheckProductDialogID = "CheckProductDlg";

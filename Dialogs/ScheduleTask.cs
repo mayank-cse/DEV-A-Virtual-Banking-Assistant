@@ -58,8 +58,7 @@ namespace DevVirtualBankingAssistant.Dialogs
             AddDialog(new CreateTaskDialog(_cosmosDBClient));
             AddDialog(new ViewTaskDialog(Configuration, _cosmosDBClient));
             AddDialog(new DeleteTaskDialog(_cosmosDBClient));
-            //AddDialog(new WaterfallDialog(nameof(WaterfallDialog), waterfallSteps));
-
+            
             // The initial child Dialog to run.
             InitialDialogId = nameof(WaterfallDialog);
         }
