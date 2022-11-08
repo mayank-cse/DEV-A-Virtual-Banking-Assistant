@@ -9,7 +9,7 @@
     <a href="https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/watch?v=7rRr-QrRWckhttps">View Demo</a>
+    <a href="#demo-video">View Demo</a>
     ·
     <a href="https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/issues">Report Bug</a>
     ·
@@ -39,9 +39,10 @@
     <li><a href="#to-try-this-sample">Try This Sample</a></li>
     <li><a href="#testing-the-bot-using-bot-framework-emulator">Emulator Testing</a></li>
     <li><a href="#deploy-the-bot-to-azure">Deploying</a></li>
-    <li><a href="#implementation-video">Implementation</a></li>
     <li><a href="#flow-chart">Flow Chart</a></li>
     <li><a href="#presentation">Presentation</a></li>
+    <li><a href="#implementation-video">Implementation</a></li>
+    <li><a href="#demo-video">Demo Video</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#further-reading">Further Reading</a></li>
   </ol>
@@ -154,6 +155,41 @@ Once you created the LUIS model, update `appsettings.json` with your `LuisAppId`
 - Enter a Bot URL of `http://localhost:3978/api/messages
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## The LUIS Bank Transaction Concept
+The bot is built around a very typical banking scenario which has two main capabilities:
+* Check balance
+* Make a transfer
+
+### This sample demonstrates:
+* __Luis Intent detection__ 
+	* Using `LuisRecognizer` not `LuisRecognizerMiddleware` 
+	* Using Luis in middleware means every single message will go via Luis which is not necessary and costly in this scenario because once we have the intent and initial entities we no longer require Luis
+* __Luis entity extraction__; getting the entities we have from the initial Luis utterance
+* __Entity completion__; using bot dialogs to complete entities that were missing from initial Luis utterance
+* __Basic bot dialogs with waterfall steps__
+
+
+### Check Balance
+Simple intent that displays a made-up balance for the user's account
+
+To invoke the Check Balance feature
+* __"Check my balance"__; no entities just the `Balance` intent
+
+### Using Make a Transfer
+To make a transfer, the user must provide four different entities. These can be included in the initial utterance; if they are not, the bot will use a dialog to complete them:
+* __AccountLabel__; a [simple Luis entity](https://docs.microsoft.com/en-gb/azure/cognitive-services/LUIS/luis-concept-entity-types) to represent the nick name for the account to transfer from i.e. 'Joint', 'Savings', 'Current' or 'Sole' 
+* __Money__; a [pre-built Luis Currency entity](https://docs.microsoft.com/en-gb/azure/cognitive-services/LUIS/luis-reference-prebuilt-currency) to represent the amount to be transferred
+* __Date__; a [pre-built Luis DatetimeV2 entity](https://docs.microsoft.com/en-gb/azure/cognitive-services/LUIS/luis-reference-prebuilt-datetimev2) to represent the date the transfer should take place
+* __Payee__; a [simple Luis entity](https://docs.microsoft.com/en-gb/azure/cognitive-services/LUIS/luis-concept-entity-types) to represent the label for the payment recipient. This will typically be a name or company name (The Luis model has very limited training here, so only 'Martin Kearn', 'Amy Griffiths', 'John Jones' and 'BT' are likely to work as a payee)
+
+The Make a Transfer feature can be invoked using natural language including some, all or none or the required entities. Here are some examples:
+* __"I want to make a transfer"__; the `Transfer` intent without any entities.
+* __"Transfer from the joint account"__; the `Transfer` intent with the `AccountLabel` entity.
+* __"Transfer £20 from the joint account"__; the `Transfer` intent with the `AccountLabel` and `Money` entities.
+* __"Transfer £20 from the joint account on saturday"__; the `Transfer` intent with the `AccountLabel`, `Money` and `Date` entities.
+* __"Transfer £20 from the joint account to martin kearn on saturday"__; the `Transfer` intent with the `AccountLabel`, `Money`, `Date` and `Payee` entities.
+
 
 ## Deploy the bot to Azure
 
