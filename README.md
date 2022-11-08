@@ -52,7 +52,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![App Screenshot](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/DEV%20Activity%20Chart.png)
+<img width="960" alt="DEV Activity Chart" src="https://user-images.githubusercontent.com/72187020/200659507-6ab4b64f-197b-44e2-9d62-be26c4b8b101.png">
+
 
 The virtual financial assistant Dev is designed to help customers more easily manage their money. Within the interactive interface, Dev provides reward and account balances, spending summaries, refund confirmations and credit scores. He can also identify duplicate charges and send bill reminders. 
 
@@ -122,7 +123,7 @@ Once you created the LUIS model, update `appsettings.json` with your `LuisAppId`
 
     ```bash
     # change into project folder
-    cd Dev-BankBot
+    cd DevVirtualBankingAssistant
     ```
 
 - Run the bot from a terminal or from Visual Studio, choose option A or B.
@@ -138,8 +139,8 @@ Once you created the LUIS model, update `appsettings.json` with your `LuisAppId`
 
   - Launch Visual Studio
   - File -> Open -> Project/Solution
-  - Navigate to `Dev-BankBot` folder
-  - Select `Dev-BankBot.csproj` file
+  - Navigate to `DevVirtualBankingAssistant` folder
+  - Select `DevVirtualBankingAssistant.csproj` file
   - Press `F5` to run the project
 
 ## Testing the bot using Bot Framework Emulator
@@ -190,6 +191,8 @@ The Make a Transfer feature can be invoked using natural language including some
 * __"Transfer £20 from the joint account on saturday"__; the `Transfer` intent with the `AccountLabel`, `Money` and `Date` entities.
 * __"Transfer £20 from the joint account to martin kearn on saturday"__; the `Transfer` intent with the `AccountLabel`, `Money`, `Date` and `Payee` entities.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Deploy the bot to Azure
 
@@ -202,8 +205,7 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 
 
 ## Flow Chart
-![Flow Chart](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/Dev%20Flow%20Chart.png)
-
+<img width="960" alt="Dev Flow Chart" src="https://user-images.githubusercontent.com/72187020/200659707-d40df1b0-0108-4bb5-a7c3-4510f6e2880a.png">
 
 
 ## Implementation Video
