@@ -221,6 +221,32 @@ https://youtu.be/uHREvKiU0g8
 
 
 https://user-images.githubusercontent.com/72187020/200647986-3a5145ac-0a07-470f-aa89-69735488d8de.mp4
+<!-- TIME STAMP -->
+<details>
+  <summary>Time Stamp of Bot Feature Demo</summary>
+  <ol>
+    <li>1:29 - Demo Starts</li>
+    <li>1:41 - OTP Verification</li>
+    <li>2:21 - QnA Maker/ Language Studio Question Answering</li>
+    <li>2:36 - Transaction (Microsoft Cosmo DB)</li>
+    <li>3:57 - Detect Language (Azure Language Detection + Language Translation)</li>
+    <li>4:50 - Cheque Transaction (Azure Computer Vision + Azure Object Detection)</li>
+    <li>6:15 - Khata Book (Azure Cosmo DB)</li>
+    <li>7:09 - Invoice Analyzer (Azure Form Recognizer)</li>
+    <li>8:05 - Service Products (Azure Cosmo DB)</li>
+    <li>(9:11) Cancel | Quit Intent</li>
+    <li>11:29 - Register Complaint</li>
+    <li>12:47 - Schedule Meeting (Microsoft Power Automate + Microsoft Teams)</li>
+    <li>14:15 - Exit (Azure Sentiment Analysis)</li>
+    <li>15:11 - Glance of the backend running code</li>
+    <li>15:32 - Hosted (Azure Bot Service)</li>
+    <li>16:04 - LUIS for transaction n checking balance</li>
+  </ol>
+</details>
+
+
+
+
 
 
 <!-- CONTACT -->
