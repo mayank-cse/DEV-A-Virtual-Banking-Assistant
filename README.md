@@ -13,7 +13,7 @@
     ·
     <a href="https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/issues">Report Bug</a>
     ·
-    <a href="https://docs.google.com/presentation/d/15G2gJ_l0Yf6BbbnAvDusuyo-6oca0zkx/edit?usp=sharing&ouid=110656000818841743215&rtpof=true&sd=true">View Presentation</a>
+    <a href="https://1drv.ms/p/s!AqPutyaMMDPchxk-rgpzvvOp-avH?e=39UbKT">View Presentation</a>
   </p>
 </div>
 
