@@ -200,7 +200,7 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 <p align="right">(<a href="readme-top">back to top</a>)</p>
 
 ## Presentation
-[DEV BankingBot Presentation.pptx](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/Dev%20PPT%202.0.pptx)
+[DEV BankingBot Presentation.pptx](https://github.com/mayank-cse/DEV-A-Virtual-Banking-Assistant/blob/main/Resources/Dev%20PPT%202.0.pptx)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
